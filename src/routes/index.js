@@ -1,7 +1,11 @@
 import { NotFoundPage } from 'app/pages/NotFoundPage';
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PrivateRouter from './PrivateRouter';
+import Header from 'Components/Common/Header';
+import Sidebar from 'Components/Common/Sidebar';
+import { Navigate } from 'react-router-dom';
+import { getSessionDatavalue } from 'utils/common';
 
 const Home = React.lazy(() => import('Components/Home/index.js'));
 const Login = React.lazy(() => import('Components/Login/Login'));
@@ -572,16 +576,77 @@ const TaxSavingScheme = React.lazy(() =>
   import('Components/Payroll/Setting/Tds/TaxSavingScheme'),
 );
 const Chat = React.lazy(() => import('Components/Chat/Chat'));
-export default function index() {
+export default function Index({children}) {
+
+  const [toggleBtn, setToggleBtn] = useState(false);
+    const [pageHeading, setPageHeading] = useState('Home');
+    const [employeeDropDown, setEmployeeDropDown] = useState({
+      employeeMainDropDown: false,
+      employeeMasterDropDown: false,
+      employeeAdminDropDown: false,
+      employeeSettingDropDown: false,
+    });
+    const [timeAttendanceDropDown, setTimeAttendanceDropDown] = useState({
+      timeAttendanceMainDropDown: false,
+      timeManagementDropDown: false,
+      attendanceManagementDropDown: false,
+    });
+    const [statutoryDropDown, setStatutoryDropDown] = useState({
+      statutoryMainDropDown: false,
+      statutoryItDropDown: false,
+    });
+    const [schemeDropDown, setSchemeDropDown] = useState({
+      schemeMainDropDown: false,
+      schemeAttendanceDropDown: false,
+    });
+    const handleToggle = () => {
+      setToggleBtn(!toggleBtn);
+      setEmployeeDropDown({
+        employeeMainDropDown: false,
+        employeeMasterDropDown: false,
+        employeeAdminDropDown: false,
+        employeeSettingDropDown: false,
+      });
+      setStatutoryDropDown({
+        statutoryMainDropDown: false,
+        statutoryItDropDown: false,
+      });
+      setTimeAttendanceDropDown({
+        timeAttendanceMainDropDown: false,
+        timeManagementDropDown: false,
+        attendanceManagementDropDown: false,
+      });
+      setSchemeDropDown({
+        schemeMainDropDown: false,
+        schemeAttendanceDropDown: false,
+      });
+    };
   return (
-    <div>
-      <Routes>
+    <>
+     <div className={toggleBtn ? 'main_wrapper sidebar_toggle' : 'main_wrapper'}>
+        <Sidebar
+          setPageHeading={setPageHeading}
+          toggleBtn={toggleBtn}
+          employeeDropDown={employeeDropDown}
+          setEmployeeDropDown={setEmployeeDropDown}
+          statutoryDropDown={statutoryDropDown}
+          setStatutoryDropDown={setStatutoryDropDown}
+          timeAttendanceDropDown={timeAttendanceDropDown}
+          setTimeAttendanceDropDown={setTimeAttendanceDropDown}
+          handleToggle={handleToggle}
+          setSchemeDropDown={setSchemeDropDown}
+          schemeDropDown={schemeDropDown}
+        />
+        <div className="dashboard_content">
+          <Header handleToggle={handleToggle} pageHeading={pageHeading} />
+          {/* {children} */}
+          <Routes>
         <Route
           path="/"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Home />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route path="/login" element={<Login />} />
@@ -590,1637 +655,1639 @@ export default function index() {
         <Route
           path="/inbox"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Inbox />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/notification"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Notification />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/my-profile"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <MyProfile />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/task"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Task />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/masters/dashboard"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EmployeeDashboard />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/masters/create-employee-step-one"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateEmployeeOne />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/masters/create-employee-step-two"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateEmployeeTwo />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/masters/create-employee-step-three"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateEmployeeThree />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/masters/create-employee-step-four"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateEmployeeFour />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/masters/employee-list"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EmployeeList />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/masters/employee-profile"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EmployeeProfile />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/master/organization-structure"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <OrganizationStructure />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/master/employee-exit"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EmployeeExit />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/master/full-and-final"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <FullAndFinal />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/master/full-and-final-step-one"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <FullAndFinalStepOne />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/master/full-and-final-step-two"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <FullAndFinalStepTwo />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/master/full-and-final-step-three"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <FullAndFinalStepThree />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/master/full-and-final-step-four"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <FullAndFinalStepFour />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-excel-upload"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BullkExcelUpload />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-excel-upload-step-one"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BulkExcelUploadStepOne />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-excel-upload-step-two"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BulkExcelUploadStepTwo />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-excel-upload-step-three"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BulkExcelUploadStepThree />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-excel-upload-step-four"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BulkExcelUploadStepFour />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-profile-photo-upload"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BulkProfilePhotoUpload />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-profile-photo-upload-step-one"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BulkProfilePhotoUploadStepOne />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-profile-photo-upload-step-two"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BulkProfilePhotoUploadStepTwo />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-profile-photo-upload-step-three"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BulkProfilePhotoUploadStepThree />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bulk-document-upload"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BulkDocumentUpload />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bullk-document-upload-step-one"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BullkDocumentUploadStepOne />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/administration/bullk-document-upload-step-two"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BullkDocumentUploadStepTwo />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/setting/publish-form"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PublishForm />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/setting/policies-forms-assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PoliciesAndFormAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/setting/publish-form-inner"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PublishFormInner />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/setting/code-setting"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CodeSetting />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/employees/setting/master-setting"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <MasterSetting />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/organization/company"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Company />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/organization/legal-entity"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LegalEntity />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/organization/business-unit"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BusinessUnit />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/organization/location"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Location />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/organization/bank"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Bank />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/assets/addassignment-asset"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AddAssignAsset />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/assets/category"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AssetCategory />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/assets/assigned-list"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AssignedList />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/assets/assigned-list/create-asset"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateAsset />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/pfconfiguration"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PfConfiguration />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/pfconfiguration/create-pfconfiguration"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreatePfConfiguration />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/esicconfiguration"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EsicConfiguration />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/esicconfiguration/create-esicconfiguration"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateEsicConfiguration />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/lwfconfiguration"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LwfConfiguration />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/lwfconfiguration/create-lwfconfiguration"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateLwfConfiguration />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/ptconfiguration"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PtConfiguration />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/create-ptconfiguration"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreatePtConfiguration />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/itconfiguration/tax-regime"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <TaxRagime />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/itconfiguration/create-tax-regime"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateTaxRagime />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/statutory/itconfiguration/cess-surcharge"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CessAndSurcharge />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/generate"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LetterGenerate />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/generate/step-one"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <GenerateLetterStepOne />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/generate/step-two"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <GenerateLetterStepTwo />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/generate/step-three"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <GenerateLetterStepThree />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/generate/step-four"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <GenerateLetterStepFour />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/letter-template"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LetterTemplate />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/letter-template/step-one"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LetterTemplateStepOne />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/letter-template/step-two"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LetterTemplateStepTwo />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/letter-template/step-three"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LetterTemplateStepThree />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/letter-template/step-four"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LetterTemplateStepFour />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/letter/setting"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LetterSetting />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/dashboard"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <TimeAndAttendanceDashboard />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/dashboard/check-in"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CheckIn />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/dashboard/not-check-in"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <NotCheckIn />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/dashboard/on-leave"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <OnLeave />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/dashboard/weekly-off"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <WeeklyOff />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/dashboard/holiday"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Holiday />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/dashboard/late-coming"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LateComing />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/dashboard/early-going"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EarlyGoing />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/shift-and-day"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ShiftAndDay />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/shift/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ShiftAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/weekly-off/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <WeeklyOffAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/holiday/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <HolidayAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/create-shift"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateShift />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/create-weekly-off"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateWeeklyOff />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/holiday-list"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <HolidayList />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/shift-and-day-assign"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ShiftAndDayAssign />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/shift-and-day-calender"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ShiftAndDayCalendar />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/shift-schedule-and-pattern"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ShiftScheduleAndPattern />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/shift-schedule-and-pattern/assign-Employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ShiftScheduleAndPatternAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/attendance-management"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AttendanceManagement />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/month-register"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <MonthRegister />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/overtime"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Overtime />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/overtime-detail"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <OvertimeDetail />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/overtime-apply"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ApplyOvertime />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/overtime-approval"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <OvertimeApproval />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/regularization-approval"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <RegularizationApproval />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/configure-new-pattern"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ConfigureNewPattern />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/time-and-attendance/attendance-view"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AttendanceView />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/setting/user-roles-permission"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <UserRolesPermission />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/setting/user-roles-permission/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <UserRolesPermissionAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/setting/User-roles-permission-step-one"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <UserRolesPermissionStepOne />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/setting/User-roles-permission-step-Two"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <UserRolesPermissionStepTwo />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/setting/email-alert"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EmailAlert />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/setting/process-cheklist"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ProcessCheklist />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/setting/process-cheklist-step-two"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ProcessCheklistStepTwo />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/setting/praise-badge"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PraiseBadge />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/setting/core-value"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CoreValue />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/attendance-tracking"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AttendanceTracking />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/attendance-tracking/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AttendaceTrackingAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/create-attendance-tracking"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateAttendanceTracking />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/biometric-device"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BiometricDevices />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/biometric-device/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <BiometricDevicesAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/create-biometric-device"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateBiometricDevices />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/capture-method"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CaptureMethod />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/capture-method/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CaptureMethodAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/create-capture-method"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateCaptureMethod />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/geo-fancing"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <GeoFancing />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/geo-fancing/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <GeoFancingAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/create-geo-fancing"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateGeoFancing />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/ip-range"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <IpRange />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/ip-range/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <IpRangeAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/attendance/create-ip-range"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CreateIpRange />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/compoff"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CompOff />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/compoff/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CompOffAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leave"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Leave />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leave/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/overtime"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <OverTime />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/overtime/assign-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <OvertimeAssignEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/overtimemorepage/overtimestepone"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <OverTimeStepone />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/compoffstepone/compoffstepone"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CompOffStepone />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leavepages/leave-step-one"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveStepOne />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leavepages/leave-entitle-setup"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveEntitleSetup />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leavepages/leave-entitle-prorate"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveEntitleProrate />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leavepages/leave-application-rule"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveApplicationRule />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leavepages/leave-eestriction-setting"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveRestrictionSetting />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leavepages/holiday-weekend"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <HolidayWeekend />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leavepages/leave-yearend"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveYearend />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/scheme/leavepages/leave-approval"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveApprovalScheme />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/expense-reimbursement/expense-trip"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ExpenseTrip />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/expense-reimbursement/expense-trip/reimbursement"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Reimbursement />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/expense-reimbursement/expense-trip/reimbursement-request"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ReimbursementRequest />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/expense-reimbursement/expense-type"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ExpenseType />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/expense-reimbursement/reimbursement-approval"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ReimbursementApproval />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/expense-reimbursement/approval-chain"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ApprovalChain />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/dashboard"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveDashboard />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/leave-balance"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveBalance />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/leave-approval"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveApproval />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/leave-balance-correction"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveBalanceCorrection />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/leave-balance-correction/leave-balance-detail"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveBalanceDetail />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/comp-off"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveCompOff />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/comp-off/comp-off-detail"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CompOffDetail />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/comp-off/comp-off-detail/apply-coff"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ApplyCOFF />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/comp-off/comp-off-detail/edit-coff"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EditCOFF />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/comp-off-approval"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveCompOffApproval />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/leave-type"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveType />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/dashboard/on-leave-today"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <OnLeaveToday />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/leave-transaction/leave-summary"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <LeaveSummary />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/leave-transaction/leave-apply"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ApplyLeave />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/leave/leave-transaction/leave-edit"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EditLeave />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/helpdesk/ticket"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Ticket />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/helpdesk/tickets-chat"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <TicketsChat />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/helpdesk/setting/category"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Category />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/helpdesk/setting/status"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Status />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/dashboard"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PayrollDashboard />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/compensation"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Compensation />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/salary-setup"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <SalarySetup />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/view-compensation-details"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ViewCompensationDetails />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/compensation-edit"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CompensationEdit />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/compensation-salary-revision"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <CompensationSalaryRevision />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ProcessPayroll />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/new-joinees"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <NewJoinees />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/exit-employee"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ExitEmployee />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/leave"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PayrollLeave />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/attendance-regularization"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AttendanceRegularization />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/missing-attendance-days"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <MissingAttendanceDays />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/salary-revisions"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <SalaryRevisions />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/arrear"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Arrear />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/overtime"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PayrollOvertime />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/earning"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Earning />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/deduction"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Deduction />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/advance-loan"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AdvanceLoan />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/provident-fund"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ProvidentFund />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/ESIC"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Esic />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/PT"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Pt />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/TDS"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Tds />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/net-salary"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <NetSalary />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/view-pay-register"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ViewPayRegister />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/process-payroll/manage-payslip"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ManagePayslip />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/earning-deduction"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EarningAndDeduction />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/earning-deduction/add-earning-deduction"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AddEarningDeduction />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/earning-deduction/edit-history"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <EditHistory />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/advance-loan"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AdvanceAndLoan />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/advance-loan/add-advance"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AddAdvance />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/advance-loan/apply-loan"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ApplyLoan />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/advance-loan/view-loan"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ViewLoan />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/manage-tds"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ManageTds />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/manage-tds/manage-tds-detail"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <ManageTdsDetails />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/salary-components"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <SalaryComponents />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/salary-components/add-earning-component"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AddEarningComponent />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/salary-components/add-deducation-component"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AddDeducationComponent />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/pay-period"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PayPeriod />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/pay-period/pay-period-edit"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <PayPeriodEdit />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/salary-template"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <SalaryTemplate />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/salary-template/add-salary-template"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <AddSalaryTemplate />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/gratuity"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Gratuity />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/tds/investment"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <InvestmentSection />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/payroll/setting/tds/tax-saving-scheme"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <TaxSavingScheme />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route
           path="/Chat/"
           element={
-            <PrivateRouter>
+            // <PrivateRouter>
               <Chat />
-            </PrivateRouter>
+            // </PrivateRouter>
           }
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </div>
+        </div>
+      </div>
+    </>
   );
 }
