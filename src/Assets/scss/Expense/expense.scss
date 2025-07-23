@@ -1,0 +1,195 @@
+.expense_table {
+  .table-responsive {
+    height: calc(100vh - 318px);
+    @include media767 {
+      height: calc(100vh - 286px);
+    }
+    @include media575 {
+      height: calc(100vh - 355px);
+    }
+  }
+  &.expense_height {
+    .table-responsive {
+      height: calc(100vh - 534px);
+    }
+  }
+  .wrap_text {
+    min-width: 180px;
+  }
+}
+
+.expense_info {
+  background-color: $white;
+  border-radius: 4px;
+  padding: 14px 20px;
+  .info_box {
+    border-right: 1px dashed #93aabe;
+    padding: 0 25px;
+    @include media991 {
+      width: 50%;
+      margin: 10px 0;
+      border: none;
+    }
+    @include media575 {
+      width: 100%;
+      padding: 0;
+    }
+    &:last-child {
+      border: none;
+    }
+    h6 {
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0;
+      @include media991 {
+        font-size: 15px;
+        line-height: 22px;
+      }
+    }
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+      color: #4c5d70;
+      @include media991 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      &.text_green {
+        color: #2eb42b;
+      }
+      &.text_orange {
+        color: #ff8f0b;
+      }
+      &.text_rad {
+        color: #e30c0c;
+      }
+    }
+  }
+}
+
+.aprove_chain {
+  .chain_list {
+    > li {
+      position: relative;
+      padding: 0 0 32px 18px;
+      @include media575 {
+        padding: 0 0 30px 0;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: #3ba4e8;
+        z-index: 2;
+        @include media575 {
+          display: none;
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 9px;
+        top: 0;
+        height: 100%;
+        border-left: 1px dashed #3ba4e8;
+        z-index: 1;
+        @include media575 {
+          display: none;
+        }
+      }
+      &.border_none {
+        &::before {
+          height: 33%;
+        }
+        @include media575 {
+          display: none;
+        }
+      }
+      h6 {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0 0 20px 14px;
+        @include media575 {
+          margin: 0 0 10px 0;
+        }
+      }
+      .select_box {
+        margin-left: 40px;
+        position: relative;
+        @include media575 {
+          margin-left: 0;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: -55px;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #fff;
+          border: 3px solid #3ba4e8;
+          z-index: 2;
+          transform: translateY(-50%);
+          @include media575 {
+            display: none;
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: -41px;
+          top: 50%;
+          width: 22px;
+          border-bottom: 1px dashed #3ba4e8;
+          transform: translate(0, -50%);
+          @include media575 {
+            display: none;
+          }
+        }
+        .p-dropdown {
+          margin-right: 10px;
+          &::after {
+            content: "";
+            position: absolute;
+            left: -19px;
+            top: 50%;
+            width: 5px;
+            height: 5px;
+            border: 1px solid #3ba4e8;
+            border-radius: 50%;
+            transform: translate(0, -50%);
+            @include media575 {
+              display: none;
+            }
+          }
+        }
+        .error-message {
+          border-color: #e30c0c;
+        }
+      }
+      .check_line {
+        padding-left: 40px;
+        padding-top: 14px;
+        .p-inputtext {
+          width: 140px;
+          margin: 0 14px;
+          @include media575 {
+            margin: 14px 14px 0 0;
+          }
+        }
+        @include media575 {
+          padding-left: 0;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,571 @@
+.btn-primary {
+  white-space: nowrap;
+}
+.btn_trans {
+  background: transparent;
+  border: none;
+}
+.search_box {
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  outline: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 13px 20px 13px 45px;
+  background-image: url(../images/search.svg);
+  background-repeat: no-repeat;
+  background-position: left 15px center;
+  min-height: 48px;
+}
+.btn_success {
+  background: $bgGreen;
+  border: 1px solid $bgGreen;
+  border-radius: 4px;
+  color: $white;
+  padding: 10px 24px;
+  display: inline-flex;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  align-items: center;
+  transition: 0.5s ease;
+  &:hover {
+    background: transparent;
+    border: 1px solid $bgGreen;
+    color: $bgGreen;
+    transition: 0.5s ease;
+  }
+}
+.btn_danger_border {
+  background: transparent;
+  border: 1px solid $bgred;
+  border-radius: 4px;
+  color: $bgred;
+  padding: 10px 24px;
+  display: inline-flex;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  align-items: center;
+  transition: 0.5s ease;
+  &:hover {
+    background: $bgred;
+    border: 1px solid $bgred;
+    color: $white;
+    transition: 0.5s ease;
+  }
+}
+
+/* ===================== setting_publlic_policies css start ================== */
+.created_date {
+  span {
+    display: block;
+  }
+  .text_green {
+    color: $green;
+  }
+}
+.action_btn {
+  ul {
+    li {
+      margin-right: 10px;
+    }
+  }
+}
+.employee_publish_table {
+  .table-responsive {
+    height: calc(100vh - 290px);
+    overflow: auto;
+    table {
+      th {
+        &:last-child {
+          width: 18%;
+        }
+      }
+    }
+  }
+}
+
+/* ==================== setting_publlic_policies css end ========================== */
+
+/* ===================== setting_publlic_policiesinner css start ======================== */
+.company_policy_wrap {
+  textarea {
+    display: block;
+    width: 100%;
+    height: 150px;
+  }
+}
+.knowledge_wrap {
+  border-bottom: 1px solid $borderColor;
+}
+.filter_result_tab {
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  h6 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: $titleColor;
+  }
+}
+.result_tab {
+  ul {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    li {
+      display: flex;
+      background-color: #f3f5f7;
+      border: 1px solid $borderColor;
+      border-radius: 35px;
+      padding: 2px;
+      margin: 0 10px 5px 0;
+    }
+  }
+  &.two {
+    ul {
+      li {
+        padding: 3px 3px 3px 10px;
+      }
+    }
+  }
+}
+.result_tab_img {
+  img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: contain;
+  }
+}
+.custom_attach {
+  .p-button {
+    color: #4c5d70;
+    background: transparent;
+    border: 0;
+    width: 100%;
+    text-align: start;
+    font-size: 14px;
+    padding: 10px 0px;
+    .p-button-icon-left {
+      color: #3ba4e8;
+    }
+    &:hover {
+      background: transparent !important;
+      color: #4c5d70 !important;
+      border-color: #3ba4e8 !important;
+    }
+  }
+  .p-button-label {
+    font-weight: 400;
+  }
+  .p-fileupload {
+    padding: 3px 14px;
+    border-radius: 5px;
+    color: $secondary;
+    border: 1px solid $secondary;
+    font-size: 12px;
+    font-weight: 500;
+    background: #eaf6ff;
+  }
+}
+
+/* ===================== setting_publlic_policiesinner css end ===================== */
+
+/* ===================== setting_publish_form css start ===================== */
+
+.employee_form_table {
+  .table-responsive {
+    table {
+      th {
+        &:last-child {
+          width: 18%;
+        }
+      }
+    }
+  }
+}
+.create_policy_wrap {
+  height: auto;
+}
+
+/* ===================== setting_publish_form css end ===================== */
+
+/* ===================== code setting css start ===================== */
+
+.setting_popup {
+  width: calc(100% - 40px);
+  max-width: 620px;
+  h6 {
+    margin-bottom: 20px;
+    color: $titleColor;
+  }
+}
+.employee-code-responsive {
+  table {
+    th {
+      &:last-child {
+        width: 7%;
+      }
+    }
+  }
+}
+
+/* ===================== code setting css end ===================== */
+
+/* ===================== master setting css start ===================== */
+.tab_result_top {
+  margin-bottom: 25px;
+  .btn-primary {
+    padding: 12px 24px;
+  }
+}
+.tab_result_top_title {
+  padding: 12px 15px;
+  width: calc(100% - 160px);
+  margin-right: 25px;
+  @include media575 {
+    width: calc(100% - 130px);
+  }
+  h6 {
+    color: $titleColor;
+  }
+}
+.master_category_wrap {
+  @include media991 {
+    margin-bottom: 30px;
+  }
+  h6 {
+    .master_category_tab {
+      color: $secondary;
+      margin-bottom: 20px;
+    }
+    .nav-link {
+      padding: 14px;
+    }
+    .search_box {
+      margin-bottom: 20px;
+      width: calc(100% - 12px);
+    }
+    .nav {
+      height: calc(100vh - 295px);
+      flex-wrap: nowrap;
+      overflow: auto;
+      margin-right: 0 !important;
+      padding-right: 12px;
+      @include media991 {
+        height: auto;
+      }
+    }
+  }
+}
+.master_code_table {
+  .table-responsive {
+    height: calc(100vh - 270px);
+    overflow: auto;
+    @include media991 {
+      height: auto;
+    }
+  }
+}
+table {
+  .tab_result_table {
+    thead {
+      th {
+        width: 50%;
+        &:last-child {
+          width: 10%;
+        }
+      }
+    }
+  }
+}
+.add_employee_btn {
+  img {
+    width: 12px !important;
+  }
+}
+
+/* ===================== master setting css end ===================== */
+
+/* ===================== employee document css start ===================== */
+
+.employeedocument_table {
+  table {
+    th {
+      &:last-child {
+        width: 10%;
+      }
+    }
+  }
+}
+.slip_export {
+  .btn-border {
+    padding: 12px 18px;
+    &:hover {
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}
+
+/* ===================== employee document css end ===================== */
+
+/* ===================== employee exit css start ===================== */
+
+.data_table_one {
+  &.employee_exit_table {
+    table {
+      tbody {
+        tr {
+          td {
+            padding: 10px 16px;
+          }
+        }
+      }
+    }
+  }
+}
+.created_date {
+  .text_green {
+    color: $green;
+  }
+}
+
+/* ===================== employee exit css end ===================== */
+
+/* ===================== full & final css start ===================== */
+
+/* ===================== full & final css end ===================== */
+
+/* ===================== inbox css start ===================== */
+
+.inbox_approve_wrap {
+  height: 100%;
+  @include media1399 {
+    margin-top: 30px;
+  }
+}
+.inbox_request_inner {
+  height: calc(100vh - 218px);
+  overflow: auto;
+  padding-right: 12px;
+  @include media767 {
+    height: calc(100vh - 315px);
+  }
+}
+.inbox_select_inner {
+  height: calc(100vh - 279px);
+  overflow: auto;
+  padding-right: 12px;
+  .request_box {
+    padding: 12px 12px;
+  }
+}
+.request_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  background: transparent;
+  margin-bottom: 10px;
+  color: #141a2a;
+  border-radius: 4px;
+  border: 1px solid #dbe1e6;
+  transition: 0.5s ease;
+  &.active {
+    background: #e6edef;
+    outline: 0 !important;
+    color: #141a2a;
+    border-left: 6px solid $secondary;
+  }
+  h6 {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .inbox_date_text {
+    margin: 5px 0 0 90px;
+  }
+}
+.inbox_text {
+  width: calc(100% - 55px);
+  h6 {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  span {
+    color: $primaryLight;
+  }
+}
+.inbox_request_wrap {
+  .badge {
+    min-width: 24px;
+    background-color: $secondary !important;
+  }
+}
+.inbox_img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+  margin-right: 15px;
+  img {
+    width: 100%;
+  }
+}
+.inbox_approve_top {
+  border-bottom: 1px solid #dbe1e5;
+  padding: 10px 8px 20px;
+}
+.inbox_approve_top_inner {
+  background: #f3f5f7;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 18px 0;
+  .inbox_approve_left {
+    padding-bottom: 18px;
+  }
+  .inbox_approve_right {
+    padding-bottom: 18px;
+  }
+}
+.inbox_approve_inner {
+  padding: 30px 8px 30px;
+}
+.inbox_date_wrap {
+  max-width: 70px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  text-align: center;
+  span {
+    display: block;
+  }
+}
+.inbox_date_top {
+  padding: 7px 20px;
+  background: $bgBlue;
+  color: $white;
+}
+.inbox_date_bottom {
+  padding: 7px 20px;
+  background: #f3f5f7;
+  color: $black;
+}
+.location_map {
+  a {
+    color: $bgBlue;
+  }
+}
+.check_wrap {
+  width: calc(1000% - 95px);
+}
+.inbox_check_table_wrap {
+  max-width: 550px;
+  width: 100%;
+  table {
+    thead {
+      th {
+        background: #f3f5f7;
+      }
+    }
+  }
+}
+.inbox_check_table_wrap table thead th,
+.inbox_check_table_wrap table tbody td {
+  padding: 15px 20px;
+  text-align: center;
+}
+.letter-right-btn {
+  .btn {
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include customMedia(350) {
+      margin-bottom: 10px;
+    }
+  }
+}
+.UserRole_accordion {
+  .user-role-text {
+    @include customMedia(400) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .user-rol-flex {
+    @include customMedia(400) {
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+  }
+}
+
+.employee-code-responsive {
+  height: calc(100vh - 255px);
+  overflow: auto;
+  @include media575 {
+    height: calc(100vh - 325px);
+  }
+}
+
+/* ===================== inbox css end ===================== */
+
+@media (min-height: 600px) {
+  .employee_exit_table_inner .table-responsive {
+    height: calc(100vh - 325px);
+    overflow: auto;
+  }
+
+  .employee_full_table_inner .table-responsive {
+    height: calc(100vh - 315px);
+    overflow: auto;
+  }
+
+  .employee_form_table .table-responsive {
+    height: calc(100vh - 255px);
+    overflow: auto;
+  }
+
+  .create_policy_wrap {
+    height: calc(100vh - 210px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-height: 600px) {
+  .employee_full_table_inner .table-responsive {
+    height: auto;
+    max-height: 500px;
+  }
+
+  .employee_exit_table_inner .table-responsive {
+    height: auto;
+    max-height: 500px;
+  }
+
+  .employee-code-responsive {
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+  }
+
+  .employee_form_table .table-responsive {
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+  }
+  .employee-code-responsive {
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+  }
+}

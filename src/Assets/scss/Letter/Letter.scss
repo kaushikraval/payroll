@@ -1,0 +1,17 @@
+.lettershow_popup {
+  @include media575 {
+    .lettershow_inner {
+      padding: 30px 20px 0;
+    }
+  }
+}
+
+.letter_tempfour_inner {
+  .letter_preview_img {
+    @include media1199 {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

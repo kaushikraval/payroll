@@ -1,0 +1,982 @@
+.payroll_dashbord {
+  .p-tabview {
+    .p-tabview-nav {
+      padding: 0 28px !important;
+
+      li {
+        .p-tabview-nav-link {
+          padding: 26px 16px 16px;
+        }
+      }
+    }
+  }
+
+  .p-tabview-panels {
+    padding: 0 !important;
+    background-color: transparent;
+
+    .summary_chart {
+      background-color: #fff;
+      padding: 50px 15px 0;
+    }
+  }
+
+  .count_box {
+    .box_info {
+      background: #ffffff;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+      padding: 16px;
+
+      .icon {
+        width: 65px;
+        height: 65px;
+
+        &.employe_icon {
+          background-color: #d3e8fb;
+        }
+
+        &.earning_icon {
+          background-color: #d6dff4;
+        }
+
+        &.deduction_icon {
+          background-color: #f7e3f8;
+        }
+
+        &.payable_icon {
+          background-color: #ffe9ce;
+        }
+      }
+
+      h5 {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 24px;
+        color: #141a2a;
+      }
+
+      .bg-green {
+        background-color: #d6f4de;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        color: #34c75a;
+      }
+
+      .bg-red {
+        background-color: #ffe5ea;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        color: #e34848;
+      }
+    }
+  }
+
+  .chart_group {
+    .chart_box {
+      background: #ffffff;
+      border-radius: 4px;
+      padding: 20px 16px;
+      .chart_title {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4c5d70;
+
+        span {
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 16px;
+          letter-spacing: 0.4px;
+          color: #7c7c7c;
+        }
+      }
+      .highcharts-container {
+        svg {
+          .highcharts-plot-background {
+            width: 400px !important;
+          }
+        }
+      }
+      ul {
+        @include media575 {
+          flex-wrap: wrap;
+        }
+        li {
+          @include media575 {
+            width: 100%;
+          }
+          p {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+            color: #7c7c7c;
+          }
+          h6 {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            color: #4c5d70;
+          }
+        }
+      }
+    }
+  }
+}
+.compansation_table {
+  .table-responsive {
+    height: calc(100vh - 303px);
+
+    .salary_setup {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      color: #3ba4e8;
+      border: 1px solid #3ba4e8;
+      border-radius: 4px;
+      padding: 6px 16px;
+    }
+  }
+}
+
+.salary_user {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 24px;
+  @include media575 {
+    padding: 15px;
+  }
+  .employee_text {
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #141a2a;
+      span {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        color: #7c7c7c;
+      }
+    }
+  }
+  .emp_code {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #3ba4e8;
+    background: rgba(59, 164, 232, 0.15);
+    border-radius: 4px;
+    padding: 4px 6px;
+  }
+  h6 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #7c7c7c;
+    @include media575 {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+}
+
+.revise_type {
+  .type_box {
+    background: #ffffff;
+    border: 1px solid #dbe1e6;
+    border-radius: 4px;
+    padding: 24px;
+  }
+  input {
+    max-width: 165px;
+    width: 100%;
+  }
+}
+
+.payroll_process_info {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 30px;
+  .month {
+    h6 {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 24px;
+      color: #141a2a;
+      margin-bottom: 10px;
+      @include media991 {
+        font-size: 20px;
+        line-height: 24px;
+      }
+      @include media575 {
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+      color: #4c5d70;
+      @include media991 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+  .process_count {
+    .info_box {
+      padding: 17px 24px;
+      background: #ffffff;
+      border: 1px solid #3ba4e8;
+      border-radius: 4px;
+      margin-right: 22px;
+      &:last-child {
+        margin-right: 0;
+      }
+      p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        color: #4c5d70;
+        @include media991 {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+      h6 {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 24px;
+        color: #4c5d70;
+        margin: 0;
+        @include media991 {
+          font-size: 20px;
+          line-height: 24px;
+        }
+        @include media480 {
+          font-size: 18px;
+          line-height: 20px;
+        }
+      }
+    }
+    @include media767 {
+      .info_box {
+        margin-right: 20px;
+        width: calc(50% - 20px);
+        margin-top: 20px;
+      }
+    }
+    @include media575 {
+      .info_box {
+        margin-right: 0;
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px;
+      }
+    }
+  }
+  .info_bottom {
+    border-top: 1.5px dashed #93aabe;
+    padding-top: 40px;
+    margin-top: 40px;
+    @include media575 {
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    @include media991 {
+      .payslip_box {
+        width: 100%;
+      }
+    }
+
+    @include media575 {
+      .payslip_box {
+        flex-direction: column;
+        align-items: flex-start !important;
+        .desh_box {
+          margin: 20px 0;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .final_total {
+    padding: 0 45px 0;
+    &:first-child {
+      padding: 0 45px 0 0;
+    }
+    @include media575 {
+      padding: 0 !important;
+    }
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+      color: #4c5d70;
+    }
+    h6 {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.5px;
+      color: #141a2a;
+    }
+    @include media1199 {
+      p {
+        font-size: 14px;
+        line-height: 21px;
+      }
+      h6 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+  @include media1199 {
+    .final_total {
+      padding: 0 35px 0;
+      &:first-child {
+        padding: 0 35px 0 0;
+      }
+    }
+    .bg-green {
+      font-size: 11px;
+    }
+  }
+  .bg-green {
+    background-color: #d6f4de;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #34c75a;
+    @include media991 {
+      font-size: 11px;
+    }
+  }
+
+  .bg-red {
+    background-color: #ffe5ea;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #e34848;
+    @include media991 {
+      font-size: 11px;
+    }
+  }
+}
+
+@include media575 {
+  .payroll_process_info {
+    padding: 15px;
+  }
+}
+
+.advance_loan_tab {
+  .p-tabview {
+    .p-tabview-panels {
+      background-color: transparent;
+    }
+  }
+}
+
+.summary_box {
+  background: #ffffff;
+  border: 1px solid #dbe1e6;
+  border-radius: 4px;
+  .summary_heading {
+    background: #e6edef;
+    border-radius: 3px 3px 0px 0px;
+    padding: 15px 20px;
+    h6 {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: #141a2a;
+    }
+  }
+  .summary_info {
+    padding: 17px;
+    table {
+      thead {
+        th {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+          color: #4c5d70;
+          padding: 3px;
+          @include media1199 {
+            font-size: 14px;
+            line-height: 20px;
+          }
+          @include media575 {
+            min-width: 150px;
+          }
+        }
+      }
+      tbody {
+        td {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 0.5px;
+          color: #141a2a;
+          padding: 3px;
+          @include media1199 {
+            font-size: 14px;
+            line-height: 20px;
+          }
+          @include media575 {
+            min-width: 150px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.top_filter_wrap {
+  @include media991 {
+    .filter_wrapper {
+      width: 100%;
+    }
+  }
+
+  .p-splitbutton {
+    background: #3ba4e8;
+    border: 1px solid #3ba4e8;
+    margin-left: 16px;
+    &:hover {
+      background: #ffffff !important;
+      border-color: #3ba4e8 !important;
+      .p-button {
+        .p-button-label {
+          color: #3ba4e8;
+        }
+        .pi-chevron-down {
+          &::before {
+            color: #3ba4e8;
+          }
+        }
+      }
+      .p-splitbutton-menubutton {
+        &::before {
+          background-color: #3ba4e8;
+        }
+      }
+    }
+    .p-button {
+      // background-color: transparent;
+      // border: none;
+      .p-button-label {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        padding: 1px;
+      }
+      @include media767 {
+        .p-button-label {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+.earnign_deduction_tab {
+  .p-tabview {
+    .p-tabview-panels {
+      background-color: transparent;
+    }
+  }
+}
+
+.newjoinees_exitemployee {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 446px);
+    }
+  }
+}
+
+.attendance_leave {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 446px);
+    }
+  }
+}
+.salary_revisions_arrear {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 446px);
+    }
+  }
+}
+.overtime_earning_deduction {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 446px);
+    }
+  }
+}
+.statutory_netpay {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 446px);
+    }
+  }
+}
+.earning_deduction {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 381px);
+    }
+  }
+}
+
+.loan_wrap {
+  .wrap_box {
+    background: #ffffff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 15px 24px;
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+      color: #93aabe;
+      @include media1199 {
+        font-size: 13px;
+        line-height: 21px;
+      }
+    }
+    h6 {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 24px;
+      color: #141a2a;
+      @include media1199 {
+        font-size: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.loan_advance_tab {
+  .p-tabview {
+    .p-tabview-panels {
+      background-color: transparent;
+    }
+  }
+  .no_data {
+    padding-top: 80px;
+    p {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 24px;
+      color: #4c5d70;
+    }
+  }
+}
+.loan_summary_table {
+  table {
+    td,
+    th {
+      padding: 15px;
+    }
+  }
+}
+.p_advance_table {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 373px);
+    }
+  }
+}
+.p_loan_table {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 520px);
+    }
+  }
+}
+
+.managetds_table {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 304px);
+    }
+  }
+}
+
+.manage_tds_detail {
+  .p-tabview {
+    .p-tabview-panels {
+      background-color: transparent;
+    }
+  }
+
+  .count_wrap {
+    .count_box {
+      @include media991 {
+        width: calc(50% - 16px);
+        margin: 10px 0;
+      }
+      @include media480 {
+        width: 100%;
+      }
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #93aabe;
+        @include media575 {
+          font-size: 13px;
+          line-height: 20px;
+        }
+      }
+      h4 {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 24px;
+        color: #4c5d70;
+        @include media575 {
+          font-size: 20px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+  .p-tabview-panel {
+    p {
+      @include media767 {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .title_table {
+    background: #ffffff;
+    border-radius: 4px;
+    .title {
+      padding: 18px 16px;
+      h6 {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color: #141a2a;
+        @include media575 {
+          font-size: 17px;
+          line-height: 19px;
+        }
+      }
+    }
+    table {
+      th,
+      td {
+        padding: 15px;
+      }
+    }
+    &.table_input {
+      table {
+        th {
+          padding: 15px;
+        }
+        td {
+          padding: 4px 15px;
+        }
+      }
+    }
+    &.big_title {
+      table {
+        th {
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 24px;
+          color: #141a2a;
+          border-bottom: 1px solid #dbe1e5;
+          @include media991 {
+            font-size: 16px;
+            line-height: 18px;
+          }
+          @include media991 {
+            font-size: 13px;
+            line-height: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.salary_components_tab {
+  .p-tabview {
+    .p-tabview-panels {
+      background-color: transparent;
+    }
+  }
+  .earning_deduction {
+    .table-responsive {
+      @media (min-height: 600px) {
+        overflow-y: auto;
+        height: calc(100vh - 313px);
+      }
+    }
+  }
+}
+.add_earning_deducation_form {
+  h6 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #141a2a;
+  }
+}
+
+.add_salary_temp {
+  .icon_title {
+    margin: 25px 0;
+    @include media480 {
+      margin: 15px 0;
+    }
+    h6 {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #141a2a;
+    }
+  }
+  table {
+    border: 1px solid $borderColor;
+    tr {
+      th {
+        padding: 10px 16px;
+        background: #e6edef;
+        font-weight: 500;
+      }
+      td {
+        padding: 12px 16px;
+      }
+      .form_group {
+        input {
+          min-width: 150px;
+        }
+      }
+    }
+  }
+  .total_table {
+    background: #c4e4f8;
+    border-radius: 4px;
+    td {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      color: #141a2a;
+      @include media991 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+.pay_period_edit {
+  .form_group {
+    label {
+      display: block;
+      span {
+        color: inherit;
+        @include media767 {
+          display: block;
+        }
+      }
+    }
+    input {
+      max-width: 265px;
+      @include media767 {
+        max-width: 100%;
+      }
+    }
+    .p-dropdown {
+      max-width: 265px;
+      @include media767 {
+        max-width: 100%;
+      }
+    }
+  }
+  .radio_button_wrapper {
+    .radio_button.pf_radio_wrap {
+      @include media767 {
+        align-items: flex-start;
+      }
+    }
+  }
+  h6 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #141a2a;
+  }
+}
+
+.radio_squre_box {
+  .type_box {
+    background: #ffffff;
+    border: 2px solid #dbe1e6;
+    border-radius: 4px;
+    padding: 24px;
+    @include media480 {
+      padding: 15px;
+    }
+    &.active {
+      border-color: #3ba4e8;
+    }
+  }
+  h6 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #141a2a;
+    @include media480 {
+      font-size: 17px;
+      line-height: 20px;
+    }
+  }
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    @include media480 {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    color: #4c5d70;
+  }
+}
+
+.gratuity_form {
+  .gravity_row {
+    @include media480 {
+      display: block !important;
+    }
+    label {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.15px;
+      color: #4c5d70;
+      max-width: 280px;
+      width: 100%;
+    }
+    input {
+      max-width: 140px;
+      @include media480 {
+        max-width: 100%;
+      }
+    }
+  }
+  h6 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #141a2a;
+  }
+}
+
+.salary_template_table {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 253px);
+    }
+  }
+}
+.pay_period_table {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 243px);
+    }
+  }
+}
+.tds_table {
+  .table-responsive {
+    @media (min-height: 600px) {
+      overflow-y: auto;
+      height: calc(100vh - 253px);
+    }
+  }
+}
+
+.payroll_dashbord {
+  .count_box {
+    .box_info {
+      @include media1600 {
+        .icon {
+          width: 53px;
+          height: 53px;
+        }
+        h5 {
+          font-size: 18px;
+          line-height: 19px;
+        }
+      }
+      @include media480 {
+        .icon {
+          width: 48px;
+          height: 48px;
+        }
+        h5 {
+          font-size: 16px;
+          line-height: 19px;
+        }
+      }
+    }
+  }
+}
+
+.compansation_detail_wrap {
+  @include customMedia(580) {
+    .slary_text {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+  @include media480 {
+    .slary_input_box {
+      width: 100%;
+    }
+    .btn-border {
+      margin: 10px 0 !important;
+    }
+  }
+}

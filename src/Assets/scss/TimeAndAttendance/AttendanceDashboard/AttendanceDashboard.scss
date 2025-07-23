@@ -1,0 +1,139 @@
+.timing_chart_head {
+  border-bottom: 1px solid $borderColor;
+}
+.timing_chart_label .attendance_satus_wrap,
+.team_attendance_trend_main .attendance_satus_wrap {
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-right: 15px;
+  width: auto;
+  margin-left: 0;
+}
+.time_attendance_calender_wrap {
+  .p-datepicker {
+    padding: 0;
+    border: 0;
+  }
+}
+.team_attendance_summary_head {
+  .top_date_wrap {
+    h6 {
+      font-size: 15px;
+    }
+  }
+}
+.team_attendance_box {
+  padding: 15px;
+  border: 1px solid $borderColor;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  .icon {
+    width: 65px;
+    height: 65px;
+    @include customMedia(380) {
+      width: 50px;
+      height: 50px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .content {
+    width: calc(100% - 65px);
+    padding-left: 25px;
+    h6 {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 20px;
+      color: $primaryLight;
+      margin: 0 0 5px;
+      @include media480 {
+        font-size: 15px;
+        line-height: 16px;
+      }
+    }
+    h4 {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 30px;
+      margin: 0;
+      color: $primary;
+      @include media480 {
+        font-size: 19px;
+        line-height: 26px;
+      }
+    }
+  }
+}
+.two {
+  .team_attendance_box {
+    .icon {
+    }
+    .content {
+      width: calc(100% - 50px);
+      padding-left: 20px;
+    }
+  }
+}
+.team_attendance_wrap {
+  &.one {
+    .col-xl {
+      flex: 1 1 300px;
+    }
+  }
+  // display: flex;
+  // flex-wrap: wrap;
+  // &.one {
+  //   margin-left: -8px;
+  //   margin-right: -8px;
+  //   margin-bottom: 16px;
+  //   .team_attendance_box {
+  //     width: calc(100% / 5 - 16px);
+  //     margin: 0 8px;
+  //   }
+  // }
+  // &.two {
+  //   margin-left: -8px;
+  //   margin-right: -8px;
+  //   .team_attendance_box {
+  //     width: calc(100% / 4 - 16px);
+  //     margin: 0 8px;
+  //   }
+  // }
+}
+.team_attendance_trend_head {
+  border-bottom: 1px solid $borderColor;
+}
+.download_button {
+  .btn-border {
+    padding: 11px 20px;
+  }
+}
+.time_attendance_table {
+  .top_date_wrap {
+    h6 {
+      font-size: 14px;
+    }
+  }
+}
+.tabview_two {
+  .p-tabview-panels {
+    padding: 0;
+    margin-top: 25px;
+    background: transparent;
+  }
+}
+.p-tabview {
+  &.tabview_two {
+    .p-tabview-nav {
+      padding: 0 20px;
+      li {
+        margin-right: 30px;
+        .p-tabview-nav-link {
+          padding: 12px 15px 14px 15px;
+        }
+      }
+    }
+  }
+}

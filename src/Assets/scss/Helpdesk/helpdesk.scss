@@ -1,0 +1,217 @@
+.tickets_table {
+    .action_tr {
+        background-color: #F5F7F9;
+    }
+}
+
+.ticket_details {
+    overflow: hidden;
+
+    .ticket_details_header {
+        background-color: #3BA4E8;
+        display: flex;
+        justify-content: space-between;
+        min-height: 64px;
+        align-items: center;
+
+        p {
+            color: #fff;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+
+    .ticket_details_body_common {
+        height: calc(100vh - 206px);
+        overflow: auto;
+
+        .ticket_color p {
+            color: #4C5D70;
+        }
+    }
+
+    .ticket_chat_body {
+        height: calc(100vh - 273px);
+
+        .chat_screen {
+            .send_msg {
+                display: flex;
+                align-items: flex-start;
+                justify-content: end;
+                margin-top: 10px;
+
+                .chat_msg {
+                    margin-left: 60px;
+
+                    span {
+                        background-color: #C1E7FF;
+                        padding: 13px 15px;
+                        display: inline-block;
+                        border-radius: 10px;
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            background-image: url('../images/Triangle-2.png');
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            width: 30px;
+                            height: 28px;
+                            position: absolute;
+                            left: -12px;
+                            bottom: -4px;
+                        }
+                    }
+
+                    .text-extraLight-chat {
+                        color: #D8D8D8;
+                        margin: 0;
+                        margin-top: 7px;
+                        text-align: end;
+                    }
+                }
+
+            }
+
+            .resive_msg {
+                display: flex;
+                align-items: flex-start;
+                margin-top: 10px;
+
+                .chat_msg {
+                    margin-left: 20px;
+
+                    span {
+                        background-color: #F3F5F7;
+                        padding: 13px 15px;
+                        display: inline-block;
+                        border-radius: 10px;
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            background-image: url('../images/Triangle.png');
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            width: 30px;
+                            height: 28px;
+                            position: absolute;
+                            left: -12px;
+                            bottom: -4px;
+                        }
+                    }
+
+                    .text-extraLight-chat {
+                        color: #D8D8D8;
+                        margin: 0;
+                        margin-top: 7px;
+                    }
+                }
+            }
+        }
+
+        .no_chat_img {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+    }
+
+    .ticket_followers {
+        span {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+            color: #FFFFFF;
+
+        }
+    }
+
+    .ticket_chat_bottom {
+        padding: 0 20px;
+
+
+        .ticket_chat_inner {
+            position: relative;
+
+            input {
+                box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.05);
+                padding: 15px 50px;
+            }
+
+            .smiley_button {
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
+                left: 15px;
+
+                img {
+                    width: 25px;
+                }
+            }
+
+            .Paperclip_button {
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
+                right: 15px;
+
+                img {
+                    width: 25px;
+                }
+            }
+        }
+
+        .send_button .send_icon {
+            background-color: #3BA4E8;
+            border: 0;
+            height: 50px;
+            width: 50px;
+            padding: 16px;
+            border-radius: 50px;
+
+            img {
+                width: 20px;
+            }
+        }
+    }
+
+
+}
+
+.custom_attach .p-button {
+    color: #4c5d70;
+    background: transparent;
+    border: 0;
+    width: 100%;
+    text-align: start;
+    font-size: 14px;
+    padding: 10px 0px;
+}
+
+.custom_attach .p-button .p-button-icon-left {
+    color: #3ba4e8;
+}
+
+.custom_attach .p-button-label {
+    font-weight: 400;
+}
+
+.custom_attach .p-button .p-button-label.p-clickable .p-clickable {
+    padding: 3px 14px;
+    border-radius: 5px;
+    color: $secondary;
+    border: 1px solid $secondary;
+    font-size: 12px;
+    font-weight: 500;
+    background: #eaf6ff;
+}
+
+.custom_attach .p-button:hover {
+    background: transparent !important;
+    color: #4c5d70 !important;
+    border-color: #3ba4e8 !important;
+}

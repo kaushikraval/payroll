@@ -1,0 +1,536 @@
+.attendance_table {
+  .table-responsive {
+    overflow: auto;
+    height: calc(100vh - 307px);
+  }
+}
+
+.user_wrap {
+  margin: 24px 0;
+  @include media1199 {
+    margin: 15px 0;
+  }
+  .employee_img {
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+  }
+  .employee_text {
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.5px;
+      color: $primary;
+      span {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        color: $titleColor;
+      }
+    }
+  }
+}
+
+.text_celender {
+  .p-inputwrapper {
+    width: 135px;
+    &.p-inputwrapper-filled {
+      width: 260px;
+    }
+  }
+  input {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: $primary;
+    text-align: center;
+    &::placeholder {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      color: $primary;
+    }
+  }
+}
+
+.p-splitbutton {
+  &.icon_dropdown {
+    .p-splitbutton-defaultbutton {
+      display: none;
+    }
+    .p-splitbutton-menubutton {
+      &::before {
+        content: none;
+      }
+    }
+    .p-splitbutton-menubutton {
+      background: $white;
+      border-radius: 4px;
+      border: 0;
+      .p-button-icon {
+        &::before {
+          content: "\e956";
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
+
+.attebdance_type {
+  @include media1399 {
+    margin-top: 15px;
+  }
+  li {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: $primary;
+    margin-right: 12px;
+    &:last-child {
+      margin-right: 0;
+    }
+    .first_text {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: $titleColor;
+      .attebdance_bar {
+        width: 24px;
+        height: 3px;
+        background: $bggreenLight;
+        border-radius: 2px;
+        position: relative;
+        &.type_present {
+          background: $bgGreen;
+        }
+        &.type_present_first_half {
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 3px;
+            background: $bgGreen;
+            border-radius: 2px 0px 0px 2px;
+          }
+        }
+        &.type_present_second_half {
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 12px;
+            height: 3px;
+            background: $bgGreen;
+            border-radius: 0 2px 2px 0;
+          }
+        }
+        &.type_present_paid_leave {
+          background: $bgPink;
+        }
+        &.type_present_unpaid_leave {
+          background: #0da0a9;
+        }
+        &.type_present_absent {
+          background: $red;
+        }
+        &.type_present_weeklyoff {
+          background: $bgOrange;
+        }
+        &.type_present_holiday {
+          background: #5c6dfe;
+        }
+      }
+    }
+  }
+}
+
+.user_attendance_table {
+  margin-top: 25px;
+  .table-responsive {
+    height: calc(100vh - 316px);
+  }
+  table {
+    border-collapse: separate;
+    border-spacing: 5px;
+    thead {
+      position: sticky;
+      top: 5px;
+      z-index: 999;
+      tr {
+        background-color: $bgGray;
+        th {
+          // padding: 0 5px 8px;
+          background-color: $white;
+          min-height: 55px;
+          // border: 1px solid $borderColor;
+          position: sticky;
+          left: 5px;
+          z-index: 9;
+          @include media575 {
+            position: static;
+          }
+          &:first-child {
+            // padding: 0 0 8px;
+            min-width: 340px;
+            // border-right: 25px solid #f3f5f7;
+            position: sticky;
+            left: 5px;
+            z-index: 99;
+            @include media575 {
+              position: static;
+            }
+            .th_title {
+              padding: 15px 22px;
+              background: $secondary;
+              // border-radius: 4px 4px 0px 0px;
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 24px;
+              color: $white;
+
+              img {
+                margin-left: 15px;
+              }
+            }
+          }
+          &:nth-child(2) {
+            // padding-left: 10px;
+          }
+          &:last-child {
+            // padding-right: 10px;
+          }
+          span {
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              right: 0;
+              top: 2px;
+              width: 8px;
+              height: 15px;
+              // background: url('../../../images/sort-arrow.svg');
+            }
+          }
+          .date {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.4px;
+            color: $white;
+            background-color: $secondary;
+            padding: 10px 15px;
+            height: 55px;
+            span {
+              display: block;
+              font-size: 16px;
+              line-height: 16px;
+              letter-spacing: 1.25px;
+              color: $white;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        background-color: $bgGray;
+      }
+      td {
+        // background-color: $bgGray;
+        // padding: 25px 5px;
+        // border-bottom: 10px solid $white;
+        border: 1px solid $borderColor;
+        padding: 10px;
+        position: sticky;
+        left: 5px;
+        z-index: 9;
+        top: 5px;
+        @include media575 {
+          position: static;
+        }
+        &:first-child {
+          background-color: $white;
+          // padding: 0 10px 0;
+          // border-right: 25px solid #f3f5f7;
+          position: sticky;
+          left: 5px;
+          z-index: 99;
+          @include media575 {
+            position: static;
+          }
+        }
+        &:nth-child(2) {
+          // padding-left: 10px;
+        }
+        &:last-child {
+          // padding-right: 10px;
+        }
+        .user_box {
+          // background: $white;
+          // border: 1px solid $borderColor;
+          // padding: 12px 15px;
+          img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+          .user_info {
+            h3 {
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 20px;
+              color: $primary;
+              margin-bottom: 3px;
+            }
+            p {
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 21px;
+              color: $titleColor;
+              margin-bottom: 4px;
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+          .count {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.4px;
+            color: $secondary;
+            background: rgba(59, 164, 232, 0.15);
+            border-radius: 4px;
+            padding: 4px 6px;
+          }
+        }
+
+        .attebdance_type {
+          // background: $white;
+          // border: 1px solid #d8d8d8;
+          // width: 58px;
+          height: 46px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .first_text {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 24px;
+            color: $titleColor;
+            .attebdance_bar {
+              width: 24px;
+              height: 3px;
+              background: $bggreenLight;
+              border-radius: 2px;
+              position: relative;
+              &.type_present {
+                background: $bgGreen;
+              }
+              &.type_present_first_half {
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 12px;
+                  height: 3px;
+                  background: $bgGreen;
+                  border-radius: 2px 0px 0px 2px;
+                }
+              }
+              &.type_present_second_half {
+                &::after {
+                  content: "";
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+                  width: 12px;
+                  height: 3px;
+                  background: $bgGreen;
+                  border-radius: 0 2px 2px 0;
+                }
+              }
+              &.type_present_paid_leave {
+                background: $bgPink;
+              }
+              &.type_present_unpaid_leave {
+                background: #0da0a9;
+              }
+              &.type_present_absent {
+                background: $red;
+              }
+              &.type_present_weeklyoff {
+                background: $bgOrange;
+              }
+              &.type_present_holiday {
+                background: $neonBlue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.attendance_tooltip {
+  .p-tooltip-text {
+    background-color: $titleColor;
+    p {
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 16px;
+      text-transform: uppercase;
+      color: $white;
+      margin: 0;
+      i {
+        font-size: 9px;
+        margin-right: 5px;
+      }
+      &.in_doat {
+        i {
+          color: $bgGreen;
+        }
+      }
+      &.out_doat {
+        i {
+          color: $red;
+        }
+      }
+      &.p_doat {
+        i {
+          color: $bgGreen;
+        }
+      }
+      &.pl_doat {
+        i {
+          color: $bgPink;
+        }
+      }
+      &.w_doat {
+        i {
+          color: $bgOrange;
+        }
+      }
+      &.a_doat {
+        i {
+          color: $red;
+        }
+      }
+      &.ul_doat {
+        i {
+          color: #0da0a9;
+        }
+      }
+      &.h_doat {
+        i {
+          color: $neonBlue;
+        }
+      }
+    }
+  }
+}
+
+.attendance_request {
+  .table-responsive {
+    height: calc(100vh - 318px);
+  }
+}
+
+.user_overtime_detail {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  .border_line {
+    border: 1px solid #dbe1e6;
+    border-radius: 4px;
+    padding: 24px;
+    max-width: fit-content;
+    overflow: auto;
+  }
+  li {
+    border-right: 1px dashed #93aabe;
+    padding: 0 32px;
+    min-height: 100%;
+    white-space: nowrap;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+    .name_wrap {
+      img {
+        margin-right: 13px;
+      }
+      h6 {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        color: $primary;
+      }
+      p {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        color: $titleColor;
+      }
+    }
+    p {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      color: #4c5d70;
+    }
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #4c5d70;
+    }
+  }
+  .month-right {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #93aabe;
+    padding-left: 18px;
+    white-space: nowrap;
+  }
+}
+
+.overtime_detail_table {
+  .table-responsive {
+    height: calc(100vh - 497px);
+  }
+}
+
+.final_select {
+  select {
+    max-width: 60px;
+  }
+  p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    margin: 0 10px;
+  }
+}

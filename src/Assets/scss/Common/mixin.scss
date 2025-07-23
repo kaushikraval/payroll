@@ -1,0 +1,75 @@
+$verysmall-breakpoint: 480px;
+$extrasmall-breakpoint: 575px;
+$small-breakpoint: 768px;
+$medium-breakpoint: 991px;
+$large-breakpoint: 1199px;
+$extralarge-breakpoint: 1399px;
+$veryextralarge-breakpoint: 1600px;
+$tablehight-brackpoint: 600px;
+
+// Very small devices
+@mixin media480 {
+  @media (max-width: #{$verysmall-breakpoint}) {
+    @content;
+  }
+}
+// Extra small devices
+@mixin media575 {
+  @media (max-width: #{$extrasmall-breakpoint}) {
+    @content;
+  }
+}
+// Small devices
+@mixin media767 {
+  @media (max-width: #{$small-breakpoint}) {
+    @content;
+  }
+}
+// Medium devices
+@mixin media991 {
+  @media (max-width: #{$medium-breakpoint}) {
+    @content;
+  }
+}
+// Large devices
+@mixin media1199 {
+  @media (max-width: #{$large-breakpoint}) {
+    @content;
+  }
+}
+//Extra Large devices
+@mixin media1399 {
+  @media (max-width: #{$extralarge-breakpoint}) {
+    @content;
+  }
+}
+
+//Very Extra Large devices
+@mixin media1600 {
+  @media (max-width: #{$veryextralarge-breakpoint}) {
+    @content;
+  }
+}
+
+// Table Height
+@mixin mediaHeight600 {
+  @media (max-height: #{$tablehight-brackpoint}) {
+    @content;
+  }
+}
+
+// custom devices
+@mixin customMedia($custom) {
+  @media (max-width: $custom + "px") {
+    @content;
+  }
+}
+
+// for common fonts
+@mixin defaultFontStyle($fontWeight: null, $fontSize: null, $lineHeight: null, $color: null) {
+  font-style: normal;
+  font-weight: $fontWeight;
+  font-size: ($fontSize) + px;
+  line-height: ($lineHeight) + px;
+  color: $color;
+}

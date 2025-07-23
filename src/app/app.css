@@ -1,0 +1,276 @@
+.inner_wrapper .setting_employee_access > form {
+  height: auto;
+}
+
+.UserRole_accordion
+  .p-accordion-tab
+  .p-accordion-header-link
+  .p-accordion-header-text
+  .epics_checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.UserRole_accordion
+  .p-accordion-tab
+  .p-accordion-header-link
+  .p-accordion-header-text {
+  width: 100%;
+  margin-right: 50px;
+}
+
+.UserRole_accordion .p-accordion-tab .p-accordion-header-link {
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.UserRole_accordion .p-accordion .p-accordion-tab {
+  margin-bottom: 0px;
+}
+
+.UserRole_accordion .p-accordion .p-accordion-header .p-accordion-header-link {
+  padding: 1.25rem;
+  border: 1px solid #dee2e6;
+  color: #000000;
+  background: #e6edef;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: box-shadow 0.2s;
+}
+
+.UserRole_accordion
+  .p-accordion
+  .p-accordion-header:not(.p-disabled)
+  .p-accordion-header-link:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #ffffff00;
+}
+
+.UserRole_accordion
+  .p-accordion
+  .p-accordion-header:not(.p-disabled).p-highlight:hover
+  .p-accordion-header-link {
+  border-color: #ffffff;
+  background: #ffffff;
+  color: #000000;
+}
+
+.UserRole_accordion_checkbox .epics_checkbox {
+  margin-right: 40px;
+}
+
+.UserRole_accordion_checkbox {
+  display: flex;
+}
+
+.UserRole_accordion_bottom p {
+  min-width: 200px;
+}
+
+.UserRole_accordion_bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 24px;
+  flex-wrap: wrap;
+}
+
+.UserRole_accordion_select_all .btn-primary {
+  padding: 5px 8px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.UserRole_accordion_select_all a {
+  color: #000000;
+  margin-left: 20px;
+}
+
+.EmailAlert_text {
+  width: 150px;
+}
+
+.width_process .p-multiselect-clearable {
+  width: 150px;
+}
+
+.data_table_one table tbody tr td .PraiseDadge {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.letter_temp_table_setting table thead tr td ul {
+  justify-content: flex-end;
+}
+
+.letter_temp_table_setting table thead tr th:last-child {
+  text-align: end;
+}
+
+.OverTimeStepone label input,
+.OverTimeStepone label .p-dropdown {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* .main_check_wrap .d-flex {
+  align-items: center;
+} */
+
+.OverTimeStepone label {
+  white-space: pre;
+  align-items: center;
+}
+
+.data_table_one.lwf_table.CompOffStepone .table-responsive {
+  height: 100%;
+  overflow: auto;
+}
+
+.leave_tab.employee_profile_tab .p-tabview-nav-container {
+  padding: 10px 0px 0;
+}
+
+.leave_tab .p-tabview .p-tabview-nav-btn.p-link {
+  display: none;
+}
+
+.leave_tab .p-tabview .p-tabview-nav {
+  justify-content: space-between;
+}
+
+.leave_input input[type='Number'].border_leave_input:hover {
+  border-color: #3ba4e8;
+}
+
+.leave_input input[type='Number'].border_leave_input {
+  max-width: 200px;
+  border-right: 1px solid #dbe1e6;
+  border-radius: 6px 6px 6px 6px;
+}
+
+.leave_input input[type='Number'] {
+  max-width: 70px;
+  border-right: 0;
+  border-radius: 6px 0 0 6px;
+}
+
+.form_group .leave_input .leave_input_border {
+  border-radius: 0 6px 6px 0;
+}
+
+.leave_entitle h6 {
+  margin-bottom: 20px;
+}
+
+.form_group.leave_input label,
+.form_group .leave_input label {
+  white-space: pre;
+  margin: 0 10px;
+}
+
+.SelectSingle_leave {
+  min-width: 200px;
+}
+
+.form_group label.text-extraLight {
+  color: #93aabe;
+}
+
+.leave_table table tr td {
+  width: 25%;
+}
+
+/* .contribution_ctc_wrap .create_capture_method_ul ul {
+  padding-left: 0;
+} */
+
+.contribution_doat_remove.contribution_ctc_wrap ul ul li::after {
+  content: none;
+}
+
+.contribution_ctc_wrap_one_dot_remove.contribution_ctc_wrap ul ul li::after {
+  top: 25px;
+}
+
+@media (max-width: 991px) {
+  .UserRole_accordion_bottom p {
+    min-width: 100%;
+  }
+
+  .UserRole_accordion_checkbox {
+    display: flex;
+    margin: 10px 0;
+  }
+}
+
+@media (max-height: 600px) {
+  .create_employee {
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+  }
+
+  .UserRole_accordion_inner {
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+  }
+
+  .setting-process-code-responsive {
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+  }
+}
+
+@media (min-height: 600px) {
+  .create_employee {
+    height: calc(100vh - 270px);
+    overflow: auto;
+  }
+
+  .UserRole_accordion_inner {
+    height: calc(100vh - 340px);
+    overflow: auto;
+  }
+
+  .setting-process-code-responsive {
+    height: calc(100vh - 285px);
+    overflow: auto;
+  }
+
+  .praise-code-responsive {
+    height: calc(100vh - 140px);
+    overflow: auto;
+  }
+
+  .inner_wrapper .setting_employee_access > form {
+    height: calc(100vh - 426px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 575px) {
+  .UserRole_accordion_bottom {
+    margin-right: 0;
+  }
+  .UserRole_accordion_checkbox .epics_checkbox {
+    margin-right: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .UserRole_accordion_checkbox .epics_checkbox {
+    width: 50%;
+    margin: 0 0 8px;
+  }
+
+  .UserRole_accordion_checkbox{
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
+}

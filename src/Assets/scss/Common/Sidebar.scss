@@ -1,0 +1,248 @@
+.sidebar_wrapper {
+  background: #191f33;
+  width: 300px;
+  height: 100vh;
+}
+
+.sidebar_wrapper ::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar_wrapper ::-webkit-scrollbar-track {
+  background: $primary;
+}
+
+.sidebar_wrapper ::-webkit-scrollbar-thumb {
+  background: $secondary;
+}
+
+.sidebar_wrapper ::-webkit-scrollbar-thumb:hover {
+  background: $primaryLight;
+}
+
+.logo {
+  text-align: center;
+  padding: 20px;
+}
+
+.menu_wrapper ul li a,
+.menu_wrapper ul li > span {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  color: $primaryLight;
+  position: relative;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.menu_wrapper ul li a:hover,
+.menu_wrapper ul li span:hover {
+  color: $white;
+}
+
+.menu_wrapper ul li a img,
+.menu_wrapper ul li span img {
+  margin-right: 10px;
+  transition: 0.5s ease;
+}
+
+.menu_wrapper ul li small {
+  font-size: inherit;
+}
+
+.menu_wrapper ul li.has_dropdown > a:after,
+.menu_wrapper ul li.has_dropdown > span:after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 13px;
+  height: 8px;
+  background: url(../images/down-arrow.svg);
+  background-repeat: no-repeat;
+  background-size: 13px;
+  transform: rotate(180deg);
+}
+
+.menu_wrapper ul li a:hover svg path,
+.menu_wrapper ul li span:hover svg path {
+  fill: $white;
+}
+
+.menu_wrapper ul ul li a,
+.menu_wrapper ul ul li span {
+  padding-left: 48px;
+}
+
+.menu_wrapper ul ul ul li a {
+  padding-left: 60px;
+}
+
+.menu_wrapper ul ul li a,
+.menu_wrapper ul ul li span {
+  position: relative;
+}
+
+.menu_wrapper ul ul li a:before,
+.menu_wrapper ul ul li span:before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  background: #93aabe;
+  border-radius: 50%;
+  transform: translate(0, -50%);
+}
+
+.menu_wrapper ul ul ul li a:before {
+  left: 42px;
+}
+
+.menu_wrapper ul ul li a:hover:before {
+  background: $secondary;
+}
+
+.has_dropdown ul {
+  display: none;
+}
+
+.has_dropdown ul.show {
+  display: block;
+}
+
+.menu_wrapper ul li.has_dropdown.open {
+  background: $primary;
+}
+
+.menu_wrapper ul ul ul li a.active {
+  background: $secondary;
+  color: $white;
+}
+
+.menu_wrapper ul > li > a.active {
+  background: $secondary;
+  color: $white;
+}
+
+.menu_wrapper ul > li > a.active img {
+  filter: brightness(55);
+}
+
+.menu_wrapper ul ul li a.active:before {
+  background: $white;
+}
+
+.menu_wrapper ul > li.has_dropdown.open > a {
+  color: $white;
+}
+
+.menu_wrapper ul > li.has_dropdown.open > a:after {
+  transform: rotate(0deg);
+}
+
+.menu_wrapper ul > li.has_dropdown.open > a:before {
+  background: $white;
+}
+
+.menu_wrapper ul > li.has_dropdown.open > a img {
+  filter: brightness(55);
+}
+
+.logo_icon {
+  display: none;
+}
+
+@media (min-width: 1400px) {
+  .main_wrapper.sidebar_toggle {
+    .sidebar_wrapper {
+      width: 100px;
+      position: relative;
+      z-index: 9999;
+    }
+
+    .logo_icon {
+      height: 42px;
+      display: inline-block;
+    }
+
+    .logo_full {
+      display: none;
+    }
+
+    .menu_wrapper ul li a span {
+      display: none;
+    }
+
+    .menu_wrapper ul li.has_dropdown > a:after {
+      display: none;
+    }
+
+    .menu_wrapper ul li a {
+      justify-content: center;
+      padding: 12px 20px;
+    }
+
+    .menu_wrapper ul li a img {
+      width: 25px;
+    }
+
+    .menu_wrapper ul li.has_dropdown ul a {
+      justify-content: start;
+      padding: 10px 15px;
+      font-size: 13px;
+    }
+
+    .menu_wrapper ul li.has_dropdown a:before {
+      display: none;
+    }
+
+    // .menu_wrapper {
+    //   overflow-y: auto;
+    // }
+
+    .has_dropdown ul.show {
+      display: block;
+      position: absolute;
+      left: 100px;
+      background: $primary;
+      top: 0;
+      min-width: 200px;
+    }
+
+    .menu_wrapper ul li.has_dropdown {
+      position: relative;
+    }
+
+    .has_dropdown ul.show ul.show {
+      left: 200px;
+    }
+  }
+}
+.close_btn {
+  position: absolute;
+  left: 15px;
+  top: 26px;
+  display: none;
+  width: 30px;
+  height: 30px;
+  opacity: 0.7;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.close_btn img {
+  width: 20px;
+}
+@media (max-width: 1400px) {
+  .sidebar_wrapper {
+    position: absolute;
+    left: -300px;
+    top: 0;
+  }
+  .close_btn {
+    display: flex;
+  }
+}

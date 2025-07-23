@@ -1,0 +1,494 @@
+.p-picklist .p-picklist-source-controls,
+.p-picklist .p-picklist-target-controls {
+  display: none;
+}
+.p-picklist .p-picklist-list {
+  border: 0;
+  padding: 0 15px 15px;
+  height: calc(100vh - 390px);
+  max-height: initial;
+}
+.p-picklist .p-picklist-list .p-picklist-item {
+  padding: 8px 10px;
+  margin: 0 0 7px;
+  border: 1px solid #dbe1e6;
+}
+.p-picklist .p-picklist-filter-container {
+  padding: 15px;
+  border: 0;
+}
+.p-picklist .p-picklist-header {
+  background: $secondary;
+  color: #fff;
+  border: 0;
+  padding: 15px 20px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  @include media575 {
+    padding: 10px 15px;
+  }
+}
+.assign_employee_box {
+  display: flex;
+}
+.assign_employee_img {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+.assign_employee_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.assign_employee_text h6 {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0 0 5px;
+}
+.p-picklist .p-picklist-list .p-picklist-item.p-highlight {
+  color: $primary;
+  background: $bgBlueLight;
+}
+.p-picklist .p-picklist-list .p-picklist-item:focus {
+  box-shadow: none;
+}
+.p-picklist .p-button {
+  color: $secondary;
+  background: transparent;
+  border: 2px solid $secondary;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 50%;
+}
+.p-picklist .p-button:enabled:hover,
+.p-picklist .p-button:not(button):not(a):not(.p-disabled):hover {
+  background: $secondary;
+  color: #ffffff;
+  border-color: $secondary;
+}
+.p-picklist .p-disabled,
+.p-component:disabled {
+  opacity: 0.6;
+  border-color: #b3b3b3 !important;
+  color: #b3b3b3 !important;
+}
+.shift_timing_table table tbody tr td {
+  // max-width: 100px;
+  padding: 12px 10px;
+}
+.weekly_off_table table tbody tr td {
+  padding: 5px 10px;
+}
+.shift_timing_table table thead tr th {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #4c5d70;
+  padding: 12px 10px;
+}
+.shift_timing_table table tbody tr td .p-calendar {
+  width: 115px;
+}
+.shift_timing_table table tbody tr.disable td {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.shift_timing_table table tbody tr.disable td:first-child {
+  pointer-events: all;
+}
+.grace_wrapper ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+.grace_wrapper ul li {
+  width: 20%;
+  padding: 0 12px;
+}
+.holiday_group_box {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.holiday_group_box .holiday_group_left {
+  width: 70%;
+}
+.holiday_group_box ul {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.holiday_group_box ul li {
+  padding-left: 20px;
+}
+
+.holiday_group_box ul li span {
+  cursor: pointer;
+}
+.holiday_group_box .holiday_group_left h6 {
+  color: $secondary;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 10px;
+}
+.shift_day_assign_filter ul.filter_wrapper li {
+  min-width: inherit;
+}
+.shift_day_assign_table_wrap table thead tr th:first-child {
+  width: 50px;
+}
+.assign_shift_popup_wrap .form_group.disable label {
+  opacity: 0.6;
+}
+.shift_calender_table table thead tr th {
+  background: $secondary;
+  color: #fff;
+}
+.shift_calender_table.data_table_one table thead tr th > span:before {
+  filter: invert(1) brightness(1);
+}
+.employee_calender_wrap table tbody tr {
+  background: transparent;
+}
+.shift_calender_table.data_table_one table tbody tr td {
+  border: 1px solid $borderColor;
+  position: sticky;
+  left: 5px;
+  z-index: 9;
+  background: #fff;
+  @include media575 {
+    position: static;
+  }
+}
+.shift_calender_table.data_table_one table {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+.shift_calender_table_inner {
+  display: flex;
+}
+.shift_calender_table_inner .employee_name_table {
+  width: 290px;
+}
+.shift_calender_table_inner .employee_calender_wrap {
+  width: 100%;
+}
+
+.employee_calender_wrap table tbody tr td {
+  white-space: nowrap;
+  max-width: inherit;
+  text-align: center;
+  padding: 10px;
+  min-width: 160px;
+}
+.employee_calender_wrap table tbody tr td span {
+  display: block;
+}
+.employee_calender_wrap table thead tr th {
+  text-align: center;
+  padding: 7px;
+  position: sticky;
+  top: 0;
+  left: 5px;
+  z-index: 99;
+  @include media575 {
+    position: static;
+  }
+}
+.employee_calender_wrap table thead tr th b {
+  display: block;
+}
+.employee_name_table table thead tr th {
+  padding: 17px 20px;
+}
+.employee_name_table table tbody tr td {
+  padding: 10px;
+}
+.employee_calender_wrap table tbody tr td.weekly_off_row {
+  background: #fff4e7;
+}
+.employee_calender_wrap table tbody tr td.holiday_row {
+  background: #eff0ff;
+}
+.employee_calender_wrap table tbody tr td.weekly_off_row.half_day_row {
+  padding: 0;
+}
+.employee_calender_wrap table tbody tr td.weekly_off_row.half_day_row span {
+  padding: 5px;
+}
+.employee_calender_wrap table tbody tr td.weekly_off_row.half_day_row span.general {
+  background: #fff;
+}
+.employee_calender_wrap table tbody tr td:first-child {
+  min-width: 280px;
+  position: sticky;
+  left: 5px;
+  background: #fff;
+  z-index: 99;
+  @include media575 {
+    position: static;
+  }
+}
+.employee_calender_wrap table tbody tr td .name_wrap {
+  text-align: left;
+}
+.employee_calender_wrap table thead tr th:first-child {
+  z-index: 999;
+}
+.employee_calender_wrap table tbody tr td span b {
+  font-weight: 500;
+}
+
+@media (max-height: 600px) {
+  .data_table_one.shift_day_table .table-responsive {
+    height: auto;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .data_table_one.holiday_table_wrap .table-responsive,
+  .data_table_one.shift_day_assign_table_wrap .table-responsive {
+    height: auto;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .shift_calender_table.data_table_one .table-responsive {
+    height: auto;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .schedule_pattern_table_Wrap.data_table_one .table-responsive {
+    height: auto;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+}
+@media (min-height: 600px) {
+  .data_table_one.shift_day_table .table-responsive {
+    height: calc(100vh - 320px);
+    overflow-y: auto;
+    // overflow-x: hidden;
+  }
+  .data_table_one.holiday_table_wrap .table-responsive {
+    height: calc(100vh - 290px);
+    overflow-y: auto;
+    // overflow-x: hidden;
+  }
+  .data_table_one.shift_day_assign_table_wrap .table-responsive {
+    height: calc(100vh - 320px);
+    overflow-y: auto;
+    // overflow-x: hidden;
+  }
+  .data_table_one.schedule_pattern_table_Wrap .table-responsive {
+    height: calc(100vh - 260px);
+    overflow-y: auto;
+    // overflow-x: hidden;
+  }
+  .shift_calender_table.data_table_one .table-responsive {
+    height: calc(100vh - 315px);
+    overflow-y: auto;
+  }
+}
+
+.shift_selection {
+  border: 1px solid #dbe1e6;
+  border-radius: 4px;
+  padding: 15px 16px 16px;
+  .p-picklist-header {
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4c5d70;
+    padding: 15px 0;
+  }
+  .p-picklist-list {
+    height: auto;
+    min-height: auto;
+    filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.05));
+    padding: 0;
+    .p-picklist-item {
+      border: none;
+      margin: 0;
+      padding: 9px 16px;
+      h6 {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #141a2a;
+      }
+    }
+  }
+  .p-picklist-buttons {
+    .p-button {
+      &:nth-child(even) {
+        display: none;
+      }
+      background: #3ba4e8;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 3px;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      .p-button-icon {
+        &::before {
+          color: #ffffff;
+        }
+      }
+      &.p-component {
+        &:disabled {
+          opacity: 1;
+          border-color: #3ba4e8 !important;
+        }
+      }
+    }
+  }
+}
+
+.custom_datepicker {
+  max-width: 40%;
+  margin-left: auto;
+  margin-bottom: -72px;
+  position: relative;
+  z-index: 1;
+  @include media575 {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-bottom: 15px;
+    max-width: 100%;
+  }
+}
+.schedual_table {
+  table {
+    border: 1px solid #dbe1e6;
+    border-radius: 4px;
+    border-spacing: 0;
+    border-collapse: unset;
+    thead {
+      tr {
+        th {
+          background-color: #e6edef;
+          border-bottom: 1px solid #dbe1e6;
+          &:first-child {
+            border-radius: 4px 0 0 0;
+            border-right: 1px solid #dbe1e6;
+          }
+          &:last-child {
+            border-radius: 0 4px 0 0;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          border-right: 1px solid #dbe1e6;
+          border-bottom: 1px solid #dbe1e6;
+
+          &:last-child {
+            border-right: none;
+            border-radius: 0 0 4px 0;
+          }
+        }
+        &:last-child {
+          td {
+            border-bottom: none;
+            &:first-child {
+              border-radius: 0 0 0 4px;
+            }
+            &:last-child {
+              border-radius: 0 0 4px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.add_minus_count {
+  button {
+    width: 24px;
+    height: 24px;
+    background: #d8d8d8;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+    padding: 0;
+    color: #ffffff;
+    &.minus {
+      background-color: #d8d8d8;
+    }
+    &.plus {
+      background-color: #3ba4e8;
+    }
+  }
+  input {
+    width: 68px;
+    margin: 0 10px;
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+  p {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: #4c5d70;
+    max-width: 295px;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+.download_option_button {
+  .p-splitbutton {
+    .p-splitbutton-defaultbutton {
+      display: none;
+    }
+    .p-button-icon-only {
+      border-radius: 4px;
+      background: #fff;
+      padding: 7px;
+      width: 45px;
+      &:before {
+        display: none;
+      }
+      .p-button-icon {
+        &:before {
+          content: "";
+          background: url(../images/downloadicon-blue.svg);
+          width: 20px;
+          height: 20px;
+          top: 50%;
+          left: 50%;
+          position: absolute;
+          background-repeat: no-repeat;
+          transform: translate(-50%, -50%);
+        }
+      }
+      &:hover {
+        background: $secondary;
+        .p-button-icon {
+          &:before {
+            filter: brightness(22);
+          }
+        }
+      }
+    }
+  }
+}

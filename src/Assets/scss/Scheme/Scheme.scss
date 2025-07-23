@@ -1,0 +1,44 @@
+.scheme_leave_table {
+  .main_table {
+    table {
+      & > thead {
+        th {
+          width: 60px;
+        }
+      }
+      .pi-chevron-right,
+      .pi-chevron-down {
+        color: $secondary;
+      }
+    }
+  }
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  text-wrap: wrap;
+}
+
+.scheme_content {
+  &.leave_tab_height {
+    height: calc(100vh - 335px);
+    overflow: auto;
+  }
+  .p-inputtext {
+    padding: 8px;
+  }
+  .leave_input {
+    label {
+      min-width: 80px;
+      width: 100%;
+      text-align: right;
+    }
+  }
+
+  input {
+    padding: 8px;
+  }
+  form {
+    max-width: 800px;
+    width: 100%;
+  }
+}

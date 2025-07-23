@@ -1,0 +1,41 @@
+@media (max-width: 1400px) {
+  .dashboard_content {
+    width: 100%;
+  }
+  header {
+    left: 0;
+    width: 100%;
+  }
+  .sidebar_toggle .sidebar_wrapper {
+    left: 0;
+    z-index: 9999;
+  }
+}
+
+@media (max-width: 991px) {
+  .right_header > ul li .form-control {
+    display: none;
+  }
+  .right_header .dropdown-toggle {
+    font-size: 0;
+  }
+}
+
+@media (max-width: 481px) {
+  .right_header > ul > li {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 391px) {
+  .right_header .dropdown-toggle img {
+    width: 35px;
+    height: 35px;
+  }
+  .page_title h1 {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  header {
+    padding: 12px 15px;
+  }
+}
